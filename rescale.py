@@ -1,15 +1,26 @@
 import cv2 as cv
 
-# img = cv.imread('D:\Python Project\open-cv\Photos\cat_large.jpg')
+# img = cv.imread('D:\Python Project\open-cv\Photos\cat.jpg')
 # cv.imshow('Cat', img)
 
+# Method 1:
 def rescaleFrame(frame, scale = 0.75):
+    # Images, Videos and Live Video 
     width = int(frame.shape[1] * scale)
     height = int(frame.shape[0] * scale)
 
     dimensions = (width, height)
 
     return cv.resize(frame, dimensions, interpolation = cv.INTER_AREA)
+
+# Method 2:
+def changeRes(width, height):
+    # Live Video
+    capture.set(3, width)
+    capture.set(4, height)
+
+# resized_image = rescaleFrame(img)
+# cv.imshow('Image', resized_image)
 
 # Reading Videos
 capture = cv.VideoCapture('D:\Python Project\open-cv\Videos\dog.mp4')
